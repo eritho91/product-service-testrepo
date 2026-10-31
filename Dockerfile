@@ -8,7 +8,7 @@ COPY pom.xml .
 RUN mvn dependency:go-offline -B
 
 COPY src ./src
-RUN mvn clean package -DskipTests
+RUN mvn clean package -Dmaven.test.skip=true
 
 # Steg 2: Kör den färdigbyggda applikationen
 FROM eclipse-temurin:17-jre
